@@ -1,0 +1,26 @@
+:host {
+  ion-item {
+    --background: transparent !important;
+    overflow: visible;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 2px;
+      background: var(--ion-color-danger);
+      top: 50%;
+      left: 52px;
+      height: 100%;
+    }
+
+    &:last-child:before {
+      display: none;
+    }
+  }
+
+  ion-label {
+    background: var(--my-custom-item-background);
+    padding: 8px 16px;
+    border-radius: 8px;
+  }
+}

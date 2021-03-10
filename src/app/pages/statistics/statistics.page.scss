@@ -1,0 +1,43 @@
+:host {
+  .top {
+    height: 200px;
+  }
+
+  .today {
+    margin-top: -140px;
+    background: white;
+  }
+
+  h5 {
+    color: var(--ion-color-step-600, #666);
+  }
+}
+
+.qr{
+  width: 200px;
+  max-width: 200px;
+  height: 200px;
+  max-height: 200px;
+  margin: auto;
+  padding: 10px;
+
+  
+}
+ion-card {
+  box-shadow: unset !important;
+}
+ion-content{
+  --background: #fff url('../../../assets/images/backgroundD.png') no-repeat center center / cover;
+}
+
+.circle { 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  height: 150px;
+  background: rgb(48, 48, 48); 
+  -moz-border-radius: 75px; 
+  -webkit-border-radius: 75px; 
+  border-radius: 75px;
+}

@@ -1,0 +1,24 @@
+:host {
+
+
+  .top {
+    height: 230px;
+  }
+
+  ::ng-deep ion-grid {
+    margin-top: -140px;
+  }
+
+  ::ng-deep ion-item {
+    color: var(--ion-color-primary);
+
+    &:first-child {
+      h4, p {
+        color: white;
+      }
+    }
+  }
+}
+ion-content{
+  --background: #fff url('../../../assets/images/backgroundD.png') no-repeat center center / cover;
+}

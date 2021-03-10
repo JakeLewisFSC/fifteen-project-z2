@@ -1,0 +1,57 @@
+app-setting {
+  .top {
+    height: 200px;
+  }
+
+  .user {
+    padding-top: 45px;
+    color: white;
+
+    p {
+      color: white;
+    }
+  }
+
+  h5 {
+    color: var(--ion-color-step-600, #666);
+  }
+
+  .num{
+    position: absolute;
+    padding: 2px;
+    right: 5px;
+    top: -2px;
+  }
+}
+.test1{
+  margin-top: -15px;
+  margin-left: 80%;
+  color: rgb(236, 96, 96);
+
+}
+ion-content{
+  --background: #fff url('../../../assets/images/backgroundD.png') no-repeat center center / cover;
+}
+
+ion-modal.notice-modal {
+  background-color: rgba(0, 0, 0, .2) !important;
+  transition: opacity .55s linear;
+  padding: 30vh 3vh;
+}
+ion-card{
+  //height:30vh;
+  //width: 50vw;
+  overflow: visible;    
+}
+ion-card-content{
+  //height: 70%;
+  overflow: visible;    
+}
+
+.container_2 {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}

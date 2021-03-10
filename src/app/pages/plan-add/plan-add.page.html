@@ -1,0 +1,50 @@
+
+<ion-header class="transparent" >
+    <ion-toolbar class="transparent" style="--background: #fff url('../../../assets/images/backgroundD.png') no-repeat center center / cover;">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/statistics"></ion-back-button>
+        </ion-buttons>
+        <ion-title>plan</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12"class="transparent">
+                <ion-item class="transparent">
+                    <ion-label>Time</ion-label>
+                    <ion-input type="tel" autofocus="true"></ion-input>
+                </ion-item>
+                <ion-item class="transparent">
+                    <ion-label>Protein</ion-label>
+                    <ion-input type="tel" autofocus="true"></ion-input>
+                </ion-item>
+                <ion-item class="transparent">
+                    <ion-label>Carbs</ion-label>
+                    <ion-input type="tel" autofocus="true"></ion-input>
+                </ion-item>
+                <ion-item class="transparent">
+                    <ion-label>Calories in</ion-label>
+                    <ion-input type="tel" autofocus="true"></ion-input>
+                </ion-item>
+                <ion-item class="transparent">
+                    <ion-label>Calories out</ion-label>
+                    <ion-input type="tel" autofocus="true" placeholder="250"></ion-input>
+                </ion-item>
+                <ion-item class="transparent">
+                    <ion-label>Activity</ion-label>
+                    <ion-input type="tel" autofocus="true"></ion-input>
+                </ion-item>
+                <ion-item class="transparent">
+                    <ion-label  position="floating">Surp/def</ion-label>
+                    <ion-textarea  rows="6" cols="20" placeholder="Enter meal notes here"></ion-textarea>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+<ion-footer class="transparent">
+         <ion-button style="--background: #fff url('../../../assets/images/backgroundD.png') no-repeat center center / cover;" expand="block" class="ion-no-margin btn-primary btn-color" (click)="onSave()">Save</ion-button>
+</ion-footer>

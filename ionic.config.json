@@ -1,0 +1,8 @@
+{
+  "name": "app-ionic-easy-fit",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

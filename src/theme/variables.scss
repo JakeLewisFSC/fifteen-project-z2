@@ -1,0 +1,193 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+:root {
+
+  --custom-primary: linear-gradient(120deg, #3a74cb 0%, #4183e1 100%);
+  --custom-secondary: linear-gradient(120deg, #65c3e9 0%, #89d9f1 100%);
+
+  /** primary **/
+  --ion-color-primary: #3a74cb;
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #274d83;
+  --ion-color-primary-tint: #4183e1;
+
+  /** secondary **/
+  --ion-color-secondary: var(--custom-secondary);
+  --ion-color-secondary-rgb: 12, 209, 232;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #0bb8cc;
+  --ion-color-secondary-tint: #24d6ea;
+
+  /** tertiary **/
+  --ion-color-tertiary: #6edbf4;
+  --ion-color-tertiary-rgb: 112, 68, 255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #0bb8cc;
+  --ion-color-tertiary-tint: #24d6ea;
+
+  /** success **/
+  --ion-color-success: #10dc60;
+  --ion-color-success-rgb: 16, 220, 96;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #0ec254;
+  --ion-color-success-tint: #28e070;
+
+  /** warning **/
+  --ion-color-warning: #ffce00;
+  --ion-color-warning-rgb: 255, 206, 0;
+  --ion-color-warning-contrast: #ffffff;
+  --ion-color-warning-contrast-rgb: 255, 255, 255;
+  --ion-color-warning-shade: #e0b500;
+  --ion-color-warning-tint: #ffd31a;
+
+  /** danger **/
+  --ion-color-danger: #f04141;
+  --ion-color-danger-rgb: 245, 61, 61;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d33939;
+  --ion-color-danger-tint: #f25454;
+
+  /** dark **/
+  --ion-color-dark: #222428;
+  --ion-color-dark-rgb: 34, 34, 34;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #1e2023;
+  --ion-color-dark-tint: #383a3e;
+
+  /** medium **/
+  --ion-color-medium: #989aa2;
+  --ion-color-medium-rgb: 152, 154, 162;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #86888f;
+  --ion-color-medium-tint: #a2a4ab;
+
+  /** light **/
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244, 244, 244;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+}
+
+ion-card{
+  //height:30vh;
+  //width: 50vw;
+  overflow: visible;   
+  
+}
+ion-card-content{
+  //height: 70%;
+  overflow: visible;    
+}
+
+:root {
+  .transparent {
+    --background: transparent;
+    background: transparent;
+  }
+
+
+  --custom-h-color: #274d83;
+  --custom-text-color: #4c7da7;
+
+  .btn-color{
+    --background: var(--custom-primary);
+  }
+
+  .btn-primary {
+    margin: 10px;
+    height: 50px;
+    --border-radius: 24px;
+    --padding-start: 25px;
+    --padding-end: 25px;
+  }
+
+  .btn-default {
+    --padding-top: 11px;
+    --padding-bottom: 11px;
+    --padding-start: 9px;
+    --padding-end: 9px;
+    border-radius: 23px;
+    --border-radius: 23px;
+    --box-shadow: none;
+    height: auto;
+  }
+
+  .background-size {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+
+  h1, .h1 {
+    font-size: 2.5rem;
+  }
+
+  h2, .h2 {
+    font-size: 2rem;
+  }
+
+  h3, .h3 {
+    font-size: 1.75rem !important;
+  }
+
+  h4, .h4 {
+    font-size: 1.3rem !important;
+  }
+
+  h5, .h5 {
+    font-size: 15px !important;
+  }
+
+  h6, .h6 {
+    font-size: 1rem;
+  }
+
+  ion-card {
+    border-radius: 12px;
+  }
+
+  ion-item {
+    --inner-padding-end: 0px;
+  }
+
+  ion-avatar {
+    height: 75px;
+    width: 75px;
+    border: 3px solid var(--ion-color-primary-contrast);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important;
+    margin: 7px 0;
+    overflow: visible;
+  }
+
+  ion-alert .alert-wrapper .alert-button-group {
+    background: var(--custom-primary) !important;
+
+    button {
+      color: white;
+    }
+  }
+
+}
+
+.md, .ios {
+
+  /* Use the primary color as the background for the toolbar */
+  --ion-toolbar-background: var(--custom-primary);
+
+  /* Change the color of the toolbar components */
+  --ion-toolbar-color: var(--ion-color-primary-contrast);
+
+}

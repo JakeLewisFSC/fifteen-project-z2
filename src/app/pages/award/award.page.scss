@@ -1,0 +1,25 @@
+:host {
+  .top {
+    height: 200px;
+  }
+
+  .top-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -140px;
+    background: white;
+    padding: 20px;
+  }
+
+  ion-item {
+    --background: linear-gradient(to right, #ffffff 0%, #e0ebef 100%);
+    margin: 0px 10px 10px 10px;
+    border-radius: 8px;
+
+  }
+}
+
+ion-content{
+  --background: #fff url('../../../assets/images/backgroundD.png') no-repeat center center / cover;
+}

@@ -1,0 +1,51 @@
+<ion-content fullscreen>
+    <div class="top background-size">
+    </div>
+    <ion-card class="ion-text-center top-card fadeInUp"
+              [ngStyle]="{'animation-duration':(1) * 0.5+'s'}">
+        <ngx-gauge [type]="time.gaugeType" cap="round" size="110" foregroundColor="rgba(118, 212, 242, 0.79)"
+                   backgroundColor="rgba(176, 242, 206, 0.54)"
+                   [value]="time.gaugeValue"
+                   [label]="time.gaugeLabel"
+                   max="5"
+                   [append]="time.gaugeAppendText">
+        </ngx-gauge>
+        <ngx-gauge [type]="distance.gaugeType" cap="round" size="110" foregroundColor="rgba(236, 240, 71, 0.88)"
+                   backgroundColor="rgba(236, 240, 71, 0.18)"
+                   [value]="distance.gaugeValue"
+                   [label]="distance.gaugeLabel"
+                   max="5"
+                   [append]="distance.gaugeAppendText">
+        </ngx-gauge>
+        <ngx-gauge [type]="calories.gaugeType" cap="round" size="110" foregroundColor="rgba(233, 66, 234, 0.81)"
+                   backgroundColor="rgba(233, 66, 234, 0.11)"
+                   [value]="calories.gaugeValue"
+                   [label]="calories.gaugeLabel"
+                   max="5"
+                   [append]="calories.gaugeAppendText">
+        </ngx-gauge>
+    </ion-card>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12">
+                <ion-item lines="none" *ngFor="let item of list;let i=index"
+                          [classList]="'fadeInUp'"
+                          [ngStyle]="{'animation-duration':(i+1) * 0.5+'s'}">
+                    <ion-thumbnail>
+                        <img [src]="item.img">
+                    </ion-thumbnail>
+                    <ion-label class="ion-padding-start">
+                        <h4>{{item.title}}</h4>
+                        <ion-icon *ngFor="let cup of item.cups;let i=index" [src]="cup" size="large"
+                                  [classList]="'flip-in-ver-right'"
+                                  [ngStyle]="{'animation-delay':(i + 1) * 0.5+'s'}"></ion-icon>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <!--
+    <button (click)="upload()">Debug</button>
+    -->
+</ion-content>

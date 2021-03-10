@@ -1,0 +1,157 @@
+<ion-header color="white" style="height: 60px;background-color: #161616; margin-top: -10px;">
+    <ion-title class="ion-text-center" color="white" style="margin-top: 20px;">
+      Settings
+    </ion-title>
+  </ion-header>
+  
+<ion-content fullscreen [ngStyle]="{'background-image':'url('+img+')'}">
+<div *ngFor="let index of userX | async"></div>
+<ion-item lines="none" style="background-color: transparent;" color="none">
+
+<ion-button *ngIf="!Edit"lines="none" style="background-color: transparent;--box-shadow: none !important;height: 36px;width: 45px;"slot="end" color="none" (click)="EditOn()">
+    <ion-icon style="margin-left: -30px;font-size: 36px;"color="white"slot="end"name="more"class="container_2"></ion-icon>
+</ion-button>
+
+<ion-button *ngIf="Edit"lines="none" style="background-color: transparent;--box-shadow: none !important;height: 36px;width: 45px;"slot="end" color="none" (click)="EditSave()">
+    <ion-icon style="margin-left: -30px;font-size: 36px;"color="primary"slot="end"name="save"></ion-icon>
+</ion-button>
+
+<ion-button *ngIf="Edit"lines="none" style="background-color: transparent;--box-shadow: none !important;height: 31px;width: 80px;text-align: left;"slot="start" color="none" (click)="EditCancel()">
+    <ion-label  color="red" style="text-align: left;">
+        Cancel
+    </ion-label>
+</ion-button>
+
+<ion-button *ngIf="!Edit"lines="none" style="background-color: transparent;--box-shadow: none !important;height: 31px;width: 80px;text-align: left;"slot="start" color="none" (click)="SignOut()">
+    <ion-label  color="red" style="text-align: left;">
+        Sign out
+    </ion-label>
+</ion-button>
+    
+</ion-item>
+
+<!--
+//////////////////
+
+old class for <ion-avatar>
+class="tilt-in-top-1"
+
+//////////////////    
+-->
+
+    <div class="top background-size" style="margin-top: -45px;">
+
+        <ion-item lines="none" class="transparent user">
+            <ion-avatar style="margin-top: 0px;display: block;margin-left: auto;margin-right: auto;" >
+                <img [src]="user.img">
+            </ion-avatar>
+<!--
+            <ion-label class="ion-padding-start">
+                <h4 class="tracking-in-expand" [ngStyle]="{'animation-delay':(1) * 0.5+'s'}">{{user.name}}</h4>
+                <p class="tracking-in-expand" [ngStyle]="{'animation-delay':(2) * 0.5+'s'}">{{user.intro}}</p>
+            </ion-label>
+            <ion-buttons slot="end">
+
+                <ion-button (click)="onNotice()">
+                    <ion-icon name="notifications-outline" color="light" size="large"
+                              class="swing"
+                              [ngStyle]="{'animation-duration':(2) * 0.5+'s','animation-iteration-count':'infinite'}"></ion-icon>
+                    <ion-badge color="danger" class="num">3</ion-badge>
+
+                </ion-button>
+
+            </ion-buttons>-->
+ 
+        </ion-item>
+        <ion-item color="none" lines="none">
+            <ion-label color="white" class="ion-text-center" style="margin-top: -3px;font-size: 25px;">
+              {{user.name}}
+          </ion-label>
+        </ion-item>
+        <ion-item color="none" lines="none">
+            <ion-label color="white" class="ion-text-center" style="margin-top: -3px;font-size: 15px;">
+              Pin Number: {{UserPin}}
+          </ion-label>
+        </ion-item>
+        <!--
+        <div class="test1" (click)="SignOut()">
+            Sign Out
+        </div>-->
+    </div>
+
+    
+    <ion-card style="height:200px;margin-top: 40px;z-index: 0;overflow: visible; background-color: rgba(200,200,200,0.1);">
+        <ion-card-content style="overflow: visible; "color="none">
+            <ion-row >
+                <ion-col size="5">
+                    <ion-img style="height:100px;width:100px;margin-top: 0px;margin-left: 30px;" src="assets/images/exampleAva.jpeg"></ion-img>  
+                </ion-col>
+                <ion-col  size="7" style="margin-left: 0px;">
+                    <!--
+                    <ion-item  color="none" style="margin-top: -10px;margin-left: 10px;width: 200px;"lines="none" *ngFor="let item of list;let i=index">
+                        <ion-icon [name]="item.icon" [color]="item.color" size="large" class="scale-in-center"
+                                  [ngStyle]="{'animation-delay':(i + 1) * 0.5+'s'}"></ion-icon>
+                        <ion-label class="ion-padding-start">
+                            <h5 style="color: white;"[classList]="'tracking-in-expand'"
+                                [ngStyle]="{'animation-delay':(i + 1) * 0.5+'s'}">{{item.title}}</h5>
+                            <p style="color:lightgray"[classList]="'tracking-in-expand'"
+                               [ngStyle]="{'animation-delay':(i + 1) * 0.6+'s'}">{{item.date}}</p>
+                        </ion-label>
+                    </ion-item>
+                    -->
+
+                    <ion-item  color="none" style="margin-top: -10px;margin-left: 10px;width: 200px;"lines="none">
+                        <ion-icon name="bicycle" color="primary" size="large" class="scale-in-center"
+                                  [ngStyle]="{'animation-delay':(i + 1) * 0.5+'s'}"></ion-icon>
+                        <ion-label class="ion-padding-start">
+                            <h5 style="color: white;"[classList]="'tracking-in-expand'"
+                                [ngStyle]="{'animation-delay':(i + 1) * 0.5+'s'}">Today's Weight</h5>
+                            <p *ngIf="!Edit" style="color:lightgray"[classList]="'tracking-in-expand'"
+                               [ngStyle]="{'animation-delay':(i + 1) * 0.6+'s'}">{{UserWeight}}</p>
+                            <input *ngIf="Edit" type="text" id="uWeight" name="uWeight" style="width: 100px;height: 22px;">
+                        </ion-label>
+                    </ion-item>
+
+                    <ion-item  color="none" style="margin-top: -10px;margin-left: 10px;width: 200px;"lines="none">
+                        <ion-icon name="ios-walk" color="tertiary" size="large" class="scale-in-center"
+                                  [ngStyle]="{'animation-delay':(i + 1) * 0.5+'s'}"></ion-icon>
+                        <ion-label class="ion-padding-start">
+                            <h5 style="color: white;"[classList]="'tracking-in-expand'"
+                                [ngStyle]="{'animation-delay':(i + 1) * 0.5+'s'}">Goal Weight</h5>
+                            <p *ngIf="!Edit"style="color:lightgray"[classList]="'tracking-in-expand'"
+                               [ngStyle]="{'animation-delay':(i + 1) * 0.6+'s'}">{{GoalWeight}}</p>
+                               <input *ngIf="Edit" type="text" id="gWeight" name="gWeight" style="width: 100px;height: 22px;">
+                            
+                        </ion-label>
+                    </ion-item>
+
+                    <ion-item  color="none" style="margin-top: -10px;margin-left: 10px;width: 200px;"lines="none">
+                        <ion-icon name="stats" color="tertiary" size="large" class="scale-in-center"
+                                  [ngStyle]="{'animation-delay':(i + 1) * 0.5+'s'}"></ion-icon>
+                        <ion-label class="ion-padding-start">
+                            <h5 style="color: white;"[classList]="'tracking-in-expand'"
+                                [ngStyle]="{'animation-delay':(i + 1) * 0.5+'s'}">Heaviest Weight</h5>
+                            <p *ngIf="!Edit"style="color:lightgray"[classList]="'tracking-in-expand'"
+                               [ngStyle]="{'animation-delay':(i + 1) * 0.6+'s'}">{{HeaviestWeight}}</p>
+                               <input *ngIf="Edit" type="text" id="hWeight" name="hWeight" style="width: 100px;height: 22px;">
+                                
+                        </ion-label>
+                    </ion-item>
+
+
+
+
+                </ion-col>
+            </ion-row>
+            
+        </ion-card-content>
+      
+    </ion-card>
+    <!--<custom-walk></custom-walk>-->
+    <!--<ion-card class="fadeInUp" 
+    [ngStyle]="{'animation-duration':(3) * 0.5+'s'}" color="white" style="height: 300px; width: 95%;">
+
+    </ion-card>-->
+    <!--<custom-line-chart></custom-line-chart>-->
+    <!--<custom-steps></custom-steps>-->
+</ion-content>

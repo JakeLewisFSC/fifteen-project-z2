@@ -1,0 +1,57 @@
+<ion-tabs style="background-color: #000000;">
+    <ion-tab-bar slot="bottom" style="background-color: #000000;">
+
+        <ion-tab-button style="background-color: #000000;" tab="statistics" #stat [layout]="stat.selected?'icon-top':'label-hide'">
+            <ng-template [ngIf]="stat.selected" [ngIfElse]="noHome">
+                <ion-icon name="md-trending-up" color="primary" class="heartBeat"
+                          [ngStyle]="{'animation-duration':(2) * 0.5+'s'}"></ion-icon>
+            </ng-template>
+            <ng-template #noHome>
+                <ion-icon name="ios-trending-up"></ion-icon>
+            </ng-template>
+            <ion-label>Statistics</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button style="background-color: #000000;"tab="award" #award [layout]="award.selected?'icon-top':'label-hide'">
+            <ng-template [ngIf]="award.selected" [ngIfElse]="noAward">
+                <ion-icon name="md-trophy" color="tertiary" class="heartBeat"
+                          [ngStyle]="{'animation-duration':(2) * 0.5+'s'}"></ion-icon>
+            </ng-template>
+            <ng-template #noAward>
+                <ion-icon name="ios-trophy"></ion-icon>
+            </ng-template>
+            <ion-label>Awards</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="tab2" style="background-color: #000000;">
+        </ion-tab-button>
+
+        <ion-tab-button style="background-color: #000000;"tab="plan" #plan [layout]="plan.selected?'icon-top':'label-hide'">
+            <ng-template [ngIf]="plan.selected" [ngIfElse]="noPlan">
+                <ion-icon name="md-calendar" color="success" class="heartBeat"
+                          [ngStyle]="{'animation-duration':(2) * 0.5+'s'}"></ion-icon>
+            </ng-template>
+            <ng-template #noPlan>
+                <ion-icon name="ios-calendar"></ion-icon>
+            </ng-template>
+            <ion-label>Plans</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button style="background-color: #000000;"tab="setting" #setting [layout]="setting.selected?'icon-top':'label-hide'">
+            <ng-template [ngIf]="setting.selected" [ngIfElse]="noSetting">
+                <ion-icon name="md-settings" color="warning" class="heartBeat"
+                          [ngStyle]="{'animation-duration':(2) * 0.5+'s'}"></ion-icon>
+            </ng-template>
+            <ng-template #noSetting>
+                <ion-icon name="settings"></ion-icon>
+            </ng-template>
+            <ion-label>Setting</ion-label>
+        </ion-tab-button>
+    </ion-tab-bar>
+</ion-tabs>
+
+<ion-fab horizontal="center" slot="fixed" vertical="bottom" class="fab-bottom">
+    <ion-fab-button color="primary" routerLink="/plan-add">
+        <ion-icon name="add" size="large"></ion-icon>
+    </ion-fab-button>
+</ion-fab>

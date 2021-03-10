@@ -1,0 +1,420 @@
+<!--
+<ion-card class="fadeInUp"
+          [ngStyle]="{'animation-duration':(3) * 0.5+'s'}">
+    <canvas baseChart width="400" height="250"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
+      </canvas>
+</ion-card>
+-->
+<div *ngFor="let index of foods | async"></div>
+<!--<div *ngFor="let index2 of myAny | async"></div>--->
+<ion-card class="fadeInUp" 
+[ngStyle]="{'animation-duration':(3) * 0.5+'s'}" style="margin-top: -50px; height: 55vh;">
+      <ion-slides pager="true" [ngStyle]="{'background-image': 'url('+img+')'}" style="height: 55vh">
+      <ion-slide style="margin-top: 0px;">
+
+            <ion-grid >
+                  <ion-row>
+                        <ion-col color="white">
+                              <ion-label [color]=
+                              "scene == true ? 'lightblue' : 'gray'" (click)="sceneOn()">
+                                    Summary
+                              </ion-label>
+                        </ion-col>
+                        <ion-col color="white">
+                              <ion-label [color]=
+                              "scene == false ? 'lightblue' : 'gray'" (click)="sceneOff()">
+                                    Timeline
+                              </ion-label>
+                        </ion-col>
+                  </ion-row>
+                  <div *ngIf="scene == true">
+                        <ion-row style="height:60px">
+                              <ion-col class="cell-class">
+                                    <ion-item color="none" lines="none" style="margin-left: -10px; margin-bottom: -15px;">
+                                          
+                                          <div style="color:white;margin-left: 50px;font-size: 35px;position: absolute;left: -40px;">
+                                                <ion-icon name="leaf" color="green" class="heartBeat"></ion-icon>
+                                          </div>
+                                          <div *ngIf="isIOS" class="keyNames">
+                                                Weight/LBS
+                                          </div>
+                                          <div *ngIf="!isIOS" class="keyNamesNo">
+                                                Weight/LBS
+                                          </div>
+                                          <div class="keyValues">
+                                                {{mUser_Weight}}
+                                          </div>
+                                    </ion-item>
+                              </ion-col>
+                              <ion-col class="cell-class">
+                                    <ion-item color="none" lines="none" style="margin-left: -10px; margin-bottom: -15px;">
+                                          
+                                          <div style="color:white;margin-left: 50px;font-size: 35px;position: absolute;left: -40px;">
+                                                <ion-icon name="body" color="lightblue" class="heartBeat"></ion-icon>
+                                          </div>
+                                          <div *ngIf="isIOS" class="keyNames">
+                                                Age
+                                          </div>
+                                          <div *ngIf="!isIOS" class="keyNamesNo">
+                                                Age
+                                          </div>
+                                          <div class="keyValues">
+                                                {{mAge}}
+                                          </div>
+                                    </ion-item>
+                              </ion-col>
+                        </ion-row>
+                        <ion-row style="height:60px">
+                              <ion-col class="cell-class">
+                                    <ion-item color="none" lines="none" style="margin-left: -10px; margin-bottom: -15px;">
+                                          
+                                          <div style="color:white;margin-left: 50px;font-size: 35px;position: absolute;left: -40px;">
+                                                <ion-icon name="tennisball" color="almostwhite" class="heartBeat"></ion-icon>
+                                          </div>
+                                          <div *ngIf="isIOS" class="keyNames">
+                                                Active Calories
+                                          </div>
+                                          <div *ngIf="!isIOS" class="keyNamesNo">
+                                                Active Calories
+                                          </div>
+                                          <div class="keyValues">
+                                                {{Calories}}
+                                          </div>
+                                    </ion-item>
+                              </ion-col>
+                              <ion-col class="cell-class">
+                                    <ion-item color="none" lines="none" style="margin-left: -10px; margin-bottom: -15px;">
+                                          
+                                          <div style="color:white;margin-left: 50px;font-size: 35px;position: absolute;left: -40px;">
+                                                <ion-icon name="restaurant" color="teal" class="heartBeat"></ion-icon>
+                                          </div>
+                                          <div *ngIf="isIOS" class="keyNames">
+                                                Consumed
+                                          </div>
+                                          <div *ngIf="!isIOS" class="keyNamesNo">
+                                                Consumed
+                                          </div>
+                                          <div class="keyValues">
+                                                no data
+                                          </div>
+                                    </ion-item>
+                              </ion-col>
+                        </ion-row>
+                        <ion-row style="height:60px">
+                              <ion-col class="cell-class">
+                                    <ion-item color="none" lines="none" style="margin-left: -10px; margin-bottom: -15px;">
+
+                                          <div style="color:white;margin-left: 50px;font-size: 35px;position: absolute;left: -40px;">
+                                                <ion-icon name="star-half" color="yellow" class="heartBeat"></ion-icon>
+                                          </div>
+                                          <div *ngIf="isIOS" class="keyNames">
+                                                Watts
+                                          </div>
+                                          <div *ngIf="!isIOS" class="keyNamesNo">
+                                                Watts
+                                          </div>
+                                          <div class="keyValues">
+                                                {{mWatts}}
+                                          </div>
+
+                                          <!--
+                                          <div style="color:white;margin-left: 50px;font-size: 35px;position: absolute;left: -40px;">
+                                                <ion-icon name="nutrition" color="orange" class="heartBeat"></ion-icon>
+                                          </div>
+                                          <div style="font-size: 10px;color:white;margin-top: -20px;margin-left: -42px;position: absolute;right: 10px;">
+                                                Fat LBS
+                                          </div>
+                                          <div class="keyValues">
+                                                dummy
+                                          </div>-->
+                                    </ion-item>
+                              </ion-col>
+                              <ion-col class="cell-class">
+                                    <ion-item color="none" lines="none" style="margin-left: -10px; margin-bottom: -15px;">
+
+
+                                          
+                                          <div style="color:white;margin-left: 50px;font-size: 35px;position: absolute;left: -40px;">
+                                                <ion-icon name="star-half" color="yellow" class="heartBeat"></ion-icon>
+                                          </div>
+                                          <div *ngIf="isIOS" class="keyNames">
+                                                Muscle Fat LBS
+                                          </div>
+                                          <div *ngIf="!isIOS" class="keyNamesNo">
+                                                Muscle/Fat LBS
+                                          </div>
+                                          <div class="keyValues">
+                                                dummy
+                                          </div>
+                                          
+
+
+                                    </ion-item>
+                              </ion-col>
+                        </ion-row>
+                        <ion-row style="height:60px">
+                              <ion-col class="cell-class">
+                                    <ion-item color="none" lines="none" style="margin-left: -10px; margin-bottom: -15px;">
+                                          
+                                          
+                                          <div style="color:white;margin-left: 50px;font-size: 35px;position: absolute;left: -40px;">
+                                                <ion-icon name="heart-half" color="red" class="heartBeat"></ion-icon>
+                                          </div>
+                                          <div *ngIf="isIOS" class="keyNames">
+                                                Visceral/Fat LBS
+                                          </div>
+                                          <div *ngIf="!isIOS" class="keyNamesNo">
+                                                Visceral/Fat LBS
+                                          </div>
+                                          <div class="keyValues">
+                                                dummy
+                                          </div>
+                                    </ion-item>
+                              </ion-col>
+                              <ion-col class="cell-class">
+                                    <ion-item color="none" lines="none" style="margin-left: -10px; margin-bottom: -15px;">
+                                          
+                                          <div style="color:white;margin-left: 50px;font-size: 35px;position: absolute;left: -40px;">
+                                                <ion-icon name="timer" color="gray" class="heartBeat"></ion-icon>
+                                          </div>
+                                          <div *ngIf="isIOS" class="keyNames">
+                                                Metabolism
+                                          </div>
+                                          <div *ngIf="!isIOS" class="keyNamesNo">
+                                                Metabolism
+                                          </div>
+                                          <div class="keyValues">
+                                                dummy
+                                          </div>
+                                    </ion-item>
+                              </ion-col>
+                        </ion-row>
+                  </div>
+                  <div *ngIf="scene == false">
+                        <ion-row style="height:240px">
+                              <ion-col class="cell-class" size="4">
+                                    <ion-row style="height:38px">
+                                          <ion-col class="cell-class">
+                                                <ion-label style="position: relative;top:3px; font-size: 11px;"[color]=
+                                                "position == 1 ? 'white' : 'gray'" (click)="pos1()">
+                                                      Weight/LBS
+                                                </ion-label>
+                                          </ion-col>
+                                    </ion-row>
+                                    <ion-row style="height:38px">
+                                          <ion-col class="cell-class">
+                                                <ion-label style="position: relative;top:3px;font-size: 11px"[color]=
+                                                "position == 2 ? 'white' : 'gray'" (click)="pos2()">
+                                                      Muscle LBS
+                                                </ion-label>
+                                          </ion-col>
+                                    </ion-row>
+                                    <ion-row style="height:38px">
+                                          <ion-col class="cell-class">
+                                                <ion-label style="position: relative;top:3px;font-size: 11px"[color]=
+                                                "position == 3 ? 'white' : 'gray'" (click)="pos3()">
+                                                      Fat LBS
+                                                </ion-label>
+                                          </ion-col>
+                                    </ion-row>
+                                    <ion-row style="height:38px">
+                                          <ion-col class="cell-class">
+                                                <ion-label style="position: relative;top:3px;font-size: 11px"[color]=
+                                                "position == 4 ? 'white' : 'gray'" (click)="pos4()">
+                                                      Muscle/Fat LBS
+                                                </ion-label>
+                                          </ion-col>
+                                    </ion-row>
+                                    <ion-row style="height:38px">
+                                          <ion-col class="cell-class">
+                                                <ion-label style="position: relative;top:3px;font-size: 11px"[color]=
+                                                "position == 5 ? 'white' : 'gray'" (click)="pos5()">
+                                                      Visceral Fat LBS
+                                                </ion-label>
+                                          </ion-col>
+                                    </ion-row> 
+                                    <ion-row style="height:38px">
+                                          <ion-col class="cell-class">
+                                                <ion-label style="position: relative;top:3px;font-size: 11px"[color]=
+                                                "position == 6 ? 'white' : 'gray'" (click)="pos6()">
+                                                      Burned Calories
+                                                </ion-label>
+                                          </ion-col>
+                                    </ion-row>
+                              </ion-col>
+                              <ion-col class="cell-class" size="8">
+                                    <ion-row style="height:180px;margin-top: 15px;">
+                                          
+                                          <canvas  baseChart width="120" height="90"
+                                                [datasets]="weightLBS"
+                                                [labels]="lineChartLabels"
+                                                [options]="lineChartOptions"
+                                                [colors]="lineChartColorsWeightLBS"
+                                                [legend]="lineChartLegend"
+                                                [chartType]="lineChartType"
+                                                [plugins]="lineChartPlugins"
+                                                (chartHover)="chartHovered($event)"
+                                                (chartClick)="chartClicked($event)"
+                                                *ngIf="position == 1">
+                                          </canvas>
+                                          <canvas baseChart width="120" height="90"
+                                                [datasets]="muscleLBS"
+                                                [labels]="lineChartLabels"
+                                                [options]="lineChartOptions"
+                                                [colors]="lineChartColors"
+                                                [legend]="lineChartLegend"
+                                                [chartType]="lineChartType"
+                                                [plugins]="lineChartPlugins"
+                                                (chartHover)="chartHovered($event)"
+                                                (chartClick)="chartClicked($event)"
+                                                *ngIf="position == 2">
+                                          </canvas>      
+                                          <canvas baseChart width="120" height="90"
+                                                [datasets]="fatLBS"
+                                                [labels]="lineChartLabels"
+                                                [options]="lineChartOptions"
+                                                [colors]="lineChartColors"
+                                                [legend]="lineChartLegend"
+                                                [chartType]="lineChartType"
+                                                [plugins]="lineChartPlugins"
+                                                (chartHover)="chartHovered($event)"
+                                                (chartClick)="chartClicked($event)"
+                                                *ngIf="position == 3">
+                                          </canvas>
+                                          <canvas baseChart width="120" height="90"
+                                                [datasets]="muscleFatLBS"
+                                                [labels]="lineChartLabels"
+                                                [options]="lineChartOptions"
+                                                [colors]="lineChartColors"
+                                                [legend]="lineChartLegend"
+                                                [chartType]="lineChartType"
+                                                [plugins]="lineChartPlugins"
+                                                (chartHover)="chartHovered($event)"
+                                                (chartClick)="chartClicked($event)"
+                                                *ngIf="position == 4">
+                                          </canvas>
+                                                <canvas baseChart width="120" height="90"
+                                                [datasets]="visceralFatLBS"
+                                                [labels]="lineChartLabels"
+                                                [options]="lineChartOptions"
+                                                [colors]="lineChartColors"
+                                                [legend]="lineChartLegend"
+                                                [chartType]="lineChartType"
+                                                [plugins]="lineChartPlugins"
+                                                (chartHover)="chartHovered($event)"
+                                                (chartClick)="chartClicked($event)"
+                                                *ngIf="position == 5">
+                                          </canvas>
+                                          <canvas  baseChart width="120" height="90"
+                                                [datasets]="metabolism"
+                                                [labels]="metabolismLabels"
+                                                [options]="lineChartOptions"
+                                                [colors]="lineChartColorsCalories"
+                                                [legend]="lineChartLegend"
+                                                [chartType]="lineChartType"
+                                                [plugins]="lineChartPlugins"
+                                                (chartHover)="chartHovered($event)"
+                                                (chartClick)="chartClicked($event)"
+                                                *ngIf="position == 6">
+                                          </canvas>
+                                    </ion-row>
+
+                              </ion-col> 
+                        </ion-row>
+                  </div>
+                  
+            </ion-grid>
+      </ion-slide>
+      <ion-slide style="margin-top: 0px;">
+            <!--
+            <canvas baseChart width="400" height="200"
+                  [datasets]="weightLBS"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+            </canvas>-->
+      </ion-slide>
+      <ion-slide>
+            <!--
+            <canvas baseChart width="400" height="200"
+                  [datasets]="muscleLBS"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+            </canvas>-->
+      </ion-slide>
+      <ion-slide>
+            <!--
+            <canvas baseChart width="400" height="200"
+                  [datasets]="fatLBS"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+            </canvas>
+      </ion-slide>
+      <ion-slide>
+            <canvas baseChart width="400" height="200"
+                  [datasets]="muscleFatLBS"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+            </canvas>-->
+      </ion-slide>
+      <ion-slide>
+            <!--
+            <canvas baseChart width="400" height="200"
+                  [datasets]="visceralFatLBS"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+            </canvas>-->
+      </ion-slide>
+      <ion-slide>
+            <canvas baseChart width="300" height="200"
+                  [datasets]="metabolism"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+            </canvas>
+      </ion-slide>
+  </ion-slides>
+</ion-card>

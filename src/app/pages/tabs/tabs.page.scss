@@ -1,0 +1,9 @@
+:host{
+  .fab-bottom {
+    margin-bottom: constant(safe-area-inset-bottom);
+    margin-bottom: env(safe-area-inset-bottom);
+  }
+}
+ion-content{
+  --background: #fff url('../../../assets/images/backgroundD.png') no-repeat center center / cover;
+}

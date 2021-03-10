@@ -1,0 +1,104 @@
+<ion-header color="white" style="height: 60px;background-color: #161616; margin-top: -10px;">
+  <ion-title class="ion-text-center" color="white" style="margin-top: 20px;">
+    Home
+  </ion-title>
+</ion-header>
+
+<ion-content fullscreen>
+    <div class="top background-size">
+    </div>
+    <ion-item class="fadeInUp" color="none" lines="none" [ngStyle]="{'animation-duration':(2) * 0.5+'s'}" style="margin-top: -200px;;">
+      <ion-label color="white"slot="start" style="font-size: 11px;">
+       Date <br> 1/31/21 
+      </ion-label>
+      <ion-label color="white"slot="end" style="font-size: 11px; float: right;">
+        Last Sync <br> 15:00
+      </ion-label>
+    </ion-item>
+
+
+    <!--
+
+      NOTE this class information goes to the ion-card below later
+      class="ion-text-center fadeInUp circle"
+      margin top is -10 not 140
+      |
+      v
+    -->
+
+    <ion-card  [ngStyle]="{'animation-duration':(2) * 0.5+'s'}" style="margin-top: -10px;">
+       <!-- <h3>Metabolism</h3>-->
+
+       
+        <ngx-gauge style="margin-top: 0px;display: block;margin-left: auto;margin-right: auto;"type="full" cap="round" thick="12" size="150" foregroundColor="rgba(204, 68, 227, 0.78)"
+                   backgroundColor="rgba(204, 68, 227, 0.18)"
+                   [value]="gaugeValue"
+                   label="BMR"
+                   [max]="1500"
+                   [append]="gaugeAppendText">
+        </ngx-gauge>
+
+        <!--
+        <ngx-gauge [type]="sleep.gaugeType" cap="round" thick="12" size="200" foregroundColor="rgba(95, 227, 64, 0.69)"
+                   backgroundColor="rgba(176, 242, 206, 0.54)"
+                   [value]="sleep.gaugeValue"
+                   [label]="sleep.gaugeLabel"
+                   max="12"
+                   [append]="sleep.gaugeAppendText">
+        </ngx-gauge>
+        -->
+    </ion-card>
+    <ion-item color="none" lines="none">
+        <ion-label color="white" class="ion-text-center" style="margin-left: -20px;margin-top: -13px;">
+          Metabolism
+      </ion-label>
+    </ion-item>
+
+    <custom-line-chart></custom-line-chart>
+
+    <!--
+    <custom-bar-chart></custom-bar-chart>
+    <custom-pie-chart></custom-pie-chart>
+    -->
+    <!--
+    <ion-card class="ion-text-left fadeInUp" style="width: 95%px; height: 400px;" [ngStyle]="{'animation-duration':(2) * 0.5+'s'}">
+      <ion-content>
+
+      
+      <div>
+        <ion-title class="ion-text-center">
+          Recent Workouts
+        </ion-title>
+        <ion-list>
+          <div *ngFor="let index of myAny | async">
+            <ion-item>
+              Workout
+            </ion-item>
+            <ion-item lines="none">
+              Type: {{index.data.Workout}}
+            </ion-item>
+            <ion-item lines="none">
+              Total Weight: {{index.data.Total_Weight}}
+            </ion-item>
+            <ion-item lines="none">
+              Reps: {{index.data.Reps}}
+            </ion-item>
+            <ion-item lines="none">
+              Starting Weight: {{index.data.Starting_Weight}}
+            </ion-item>
+            <ion-item lines="none">
+              Time: {{index.data.Time}}
+            </ion-item>
+            <ion-item lines="none">
+            </ion-item>
+
+
+            
+          </div>
+        </ion-list>
+      </div>
+    </ion-content>
+
+    </ion-card>
+  -->
+</ion-content>

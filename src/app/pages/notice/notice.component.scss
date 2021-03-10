@@ -1,0 +1,18 @@
+:host {
+  ion-slides {
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+  }
+
+  ::ng-deep.swiper-pagination-bullet {
+    background: var(--ion-color-primary) !important;
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+  ion-card {
+    box-shadow: unset !important;
+  }
+}

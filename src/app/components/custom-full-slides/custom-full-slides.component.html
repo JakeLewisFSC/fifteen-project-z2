@@ -1,0 +1,18 @@
+<div class="logo">
+    <img src="assets/images/logo.png">
+    <span>15/15</span>
+</div>
+<ion-slides pager="true" [ngStyle]="{'background-image': 'url('+img+')'}">
+    <ion-slide *ngFor="let item of list">
+        <ion-card class="ion-text-center">
+            <img [src]="item.img">
+            <h3 class="ion-text-uppercase ion-padding-top">{{item.title}}</h3>
+            <p class="ion-text-uppercase ion-no-margin ion-margin-top">{{item.intro}}</p>
+            <p class="ion-text-uppercase ion-no-margin">{{item.intro1}}</p>
+        </ion-card>
+    </ion-slide>
+</ion-slides>
+<ion-item lines="none" class="transparent">
+    <ion-button slot="start" color="purple" fill="clear" (click)="onSkip()">SKIP</ion-button>
+    <ion-button slot="end" color="purple" fill="clear" (click)="onNext()">NEXT</ion-button>
+</ion-item>

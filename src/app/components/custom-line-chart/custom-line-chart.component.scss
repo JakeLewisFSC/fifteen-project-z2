@@ -1,0 +1,120 @@
+:host {
+    .logo {
+      position: absolute;
+      margin-top: 30px;
+      margin-left: 20px;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      color: white;
+  
+      img {
+        width: 60px !important;
+      }
+  
+      span {
+        margin-left: 5px;
+      }
+    }
+  
+    ion-slides {
+      background-size: cover;
+      background-position: center center;
+      height: 260px;
+      width: 100%;
+    }
+  
+    ::ng-deep.swiper-pagination {
+      bottom: 30px !important;
+    }
+  
+    ::ng-deep.swiper-pagination-bullet {
+      background: #646161 !important;
+      width: 10px !important;
+      height: 10px !important;
+    }
+  
+    ion-card {
+      box-shadow: unset !important;
+    }
+  
+    img {
+      margin: auto;
+      width: 60% !important;
+    }
+  
+    h3 {
+      font-weight: 600;
+      color: #274d83;
+      font-size: 26px;
+    }
+  
+    p {
+      color: var(--custom-text-color);
+    }
+  
+    p:first-child {
+      margin: 16px 0px 0px 0px;
+    }
+  
+    ion-item {
+      width: 100%;
+      position: absolute;
+      bottom: 18px;
+    }
+  
+    ion-button {
+      font-size: 1rem;
+    }
+
+    .cell-class {
+      border-color: black; 
+      border-width: .01em; 
+      border-style:solid; margin-bottom : -1px;
+      background-color: rgba(200,200,200,0.1);
+    }
+    .keyNames{
+      //for IOS
+      font-size: 10px;
+      color:white;
+      margin-left: -42px;
+      position: absolute;
+      right: 10px;
+      margin-top: -15px;
+    }
+
+    .keyNames{
+      //for IOS
+      font-size: 10px;
+      color:white;
+      margin-left: -42px;
+      position: absolute;
+      right: 10px;
+      margin-top: -15px;
+    }
+    .keyNamesNo{
+      //for IOS
+      font-size: 10px;
+      color:white;
+      margin-left: -42px;
+      position: absolute;
+      right: 10px;
+      margin-top: -30px;
+    }
+    .keyValues{
+      color:white;
+      margin-left: -42px;
+      font-size: 23px;
+      position: absolute;
+      right: 10px;
+      margin-top: 10px;
+      .ios{
+        margin-top: 20px;
+      }
+      .md{
+        margin-top: 10px;
+      }
+    }
+
+  }
+  

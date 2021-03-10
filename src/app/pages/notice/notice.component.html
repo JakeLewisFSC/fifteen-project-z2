@@ -1,0 +1,11 @@
+<ion-slides pager="true">
+    <ion-slide *ngFor="let item of list">
+        <ion-card class="ion-text-center">
+            <h3 class="ion-text-uppercase ion-padding-top">{{item.title}}</h3>
+            <p>{{item.intro}}</p>
+        </ion-card>
+    </ion-slide>
+</ion-slides>
+<ion-footer>
+    <ion-button expand="full" (click)="onClose()" class="ion-no-margin" style="height: 50px">Ok</ion-button>
+</ion-footer>

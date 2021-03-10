@@ -1,0 +1,18 @@
+<ion-card class="fadeInUp"
+          [ngStyle]="{'animation-duration':(4) * 0.5+'s'}">
+    <ion-item lines="none">
+        <ion-icon name="fitness" color="tertiary"></ion-icon>
+        <ion-label style="margin-left: 6px;">Points</ion-label>
+        <ion-icon name="stats" slot="end" color="tertiary"></ion-icon>
+    </ion-item>
+    <ion-progress-bar value="0.9"></ion-progress-bar>
+    <ion-item>
+        <ion-label class="ion-text-center">
+            <h4>{{points}}</h4>
+        </ion-label>
+        <ion-label>
+            <p>GOAL</p>
+            <h5>15000</h5>
+        </ion-label>
+    </ion-item>
+</ion-card>
