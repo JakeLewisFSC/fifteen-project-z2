@@ -194,14 +194,28 @@ export class SettingPage implements OnInit {
                   /////////
                   const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${Email}`);
                   //console.log("We are here: "+email);
-                  const data2 = {
-                    uid,
-                    Email,
-                    displayName,
-                    photoURL
-                  };
+                  if (displayName)
+                  {
+                    const data2 = {
+                      uid,
+                      Email,
+                      displayName,
+                      photoURL
+                    };
+                    userRef.set(data2, { merge: true });
+                  }
+                  else
+                  {
+                    const data2 = {
+                      uid,
+                      Email,
+                      photoURL
+                    };
+                    userRef.set(data2, { merge: true });
+                  }
+
                  
-                  userRef.set(data2, { merge: true });
+                  
                   // new1 ////
                   this.myAny = this.afs.collection('users').doc(Email).snapshotChanges().subscribe(
                     values => {
@@ -269,7 +283,7 @@ export class SettingPage implements OnInit {
                 if (!data.displayName){
                   let split = email.__email.split("@");
                   let displayname = split[0];
-                  this.afs.collection('users').doc(email.__id).set({displayName:displayname},{merge:true});
+                  this.afs.collection('users').doc(email.__email).set({displayName:displayname},{merge:true});
                 }
                 this.user.name = data.displayName;
                 this.cd.detectChanges();

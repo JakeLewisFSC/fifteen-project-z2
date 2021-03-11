@@ -156,17 +156,41 @@ export class AuthService {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${email}`);
     console.log("We are here: "+email);
 
-    const data = {
+    
+    if (displayName)
+    {
+      const data  = {
+        uid,
+        email,
+        displayName,
+        photoURL
+      };
+      __email = email;
+      console.log("We are here2: "+__email);
+      __id = uid;
+      this.router.navigate(['/tabs']);
+      return userRef.set(data, { merge: true });
+    }
+    else
+    {
+      const data  = {
+        uid,
+        email,
+        photoURL
+      };
+      __email = email;
+      console.log("We are here2: "+__email);
+      __id = uid;
+      this.router.navigate(['/tabs']);
+      return userRef.set(data, { merge: true });
+    }
+    /*
+    = {
       uid,
       email,
       displayName,
       photoURL
-    };
-    __email = email;
-    console.log("We are here2: "+__email);
-    __id = uid;
-    this.router.navigate(['/tabs']);
-    return userRef.set(data, { merge: true });
+    };*/
   }
 
   public async signOut() {
