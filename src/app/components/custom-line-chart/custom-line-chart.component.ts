@@ -365,19 +365,8 @@ export class CustomLineChartComponent {
                             if(data.Time == displayDate)
                             {
                                 this.Calories = Math.round(Number(data.Calories));
-                                if (data.Watts)
-                                {
                                 this.mWatts = Math.round(Number(data.Watts));
-                                }
-                                else
-                                {
-                                    this.mWatts = "no data";
-                                }
                                 this.cd.detectChanges();
-                            }
-                            else
-                            {
-                                this.mWatts = 0;
                             }
                             if (this.count < 0) {this.count = 0;}
                             

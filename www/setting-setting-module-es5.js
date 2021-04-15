@@ -18,7 +18,7 @@ module.exports = "<ion-slides pager=\"true\">\n    <ion-slide *ngFor=\"let item 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content fullscreen [ngStyle]=\"{'background-image':'url('+img+')'}\">\n<div *ngFor=\"let index of userX | async\"></div>\n\n    <div class=\"top background-size\" >\n\n        <ion-item lines=\"none\" class=\"transparent user\">\n            <ion-avatar class=\"tilt-in-top-1\">\n                <img [src]=\"user.img\">\n            </ion-avatar>\n\n            <ion-label class=\"ion-padding-start\">\n                <h4 class=\"tracking-in-expand\" [ngStyle]=\"{'animation-delay':(1) * 0.5+'s'}\">{{user.name}}</h4>\n                <p class=\"tracking-in-expand\" [ngStyle]=\"{'animation-delay':(2) * 0.5+'s'}\">{{user.intro}}</p>\n            </ion-label>\n            <ion-buttons slot=\"end\">\n\n                <ion-button (click)=\"onNotice()\">\n                    <ion-icon name=\"notifications-outline\" color=\"light\" size=\"large\"\n                              class=\"swing\"\n                              [ngStyle]=\"{'animation-duration':(2) * 0.5+'s','animation-iteration-count':'infinite'}\"></ion-icon>\n                    <ion-badge color=\"danger\" class=\"num\">3</ion-badge>\n\n                </ion-button>\n\n            </ion-buttons>\n \n        </ion-item>\n        <div class=\"test1\" (click)=\"SignOut()\">\n            Sign Out\n        </div>\n    </div>\n\n    <custom-walk></custom-walk>\n    <!--<ion-card class=\"fadeInUp\" \n    [ngStyle]=\"{'animation-duration':(3) * 0.5+'s'}\" color=\"white\" style=\"height: 300px; width: 95%;\">\n\n    </ion-card>-->\n    <!--<custom-line-chart></custom-line-chart>-->\n    <custom-steps></custom-steps> \n</ion-content>\n"
+module.exports = "<ion-header color=\"white\" style=\"height: 60px;background-color: #161616; margin-top: -10px;\">\n    <ion-title class=\"ion-text-center\" color=\"white\" style=\"margin-top: 20px;\">\n      Settings\n    </ion-title>\n  </ion-header>\n  \n<ion-content fullscreen [ngStyle]=\"{'background-image':'url('+img+')'}\">\n<div *ngFor=\"let index of userX | async\"></div>\n<ion-item lines=\"none\" style=\"background-color: transparent;\" color=\"none\">\n\n<ion-button *ngIf=\"!Edit && !isIOS\"lines=\"none\" style=\"background-color: transparent;--box-shadow: none !important;height: 36px;width: 45px;\"slot=\"end\" color=\"none\" (click)=\"EditOn()\">\n    <ion-icon style=\"margin-left: -30px;font-size: 36px;\"color=\"white\"slot=\"end\"name=\"more\"class=\"container_2\"></ion-icon>\n</ion-button>\n\n<ion-button *ngIf=\"!Edit && isIOS\"lines=\"none\" style=\"background-color: transparent;--box-shadow: none !important;height: 36px;width: 45px;\"slot=\"end\" color=\"none\" (click)=\"EditOn()\">\n    <ion-icon style=\"margin-left: 0px;font-size: 36px;\"color=\"white\"slot=\"end\"name=\"more\"></ion-icon>\n</ion-button>\n\n<ion-button *ngIf=\"Edit && !isIOS\"lines=\"none\" style=\"background-color: transparent;--box-shadow: none !important;height: 36px;width: 45px;\"slot=\"end\" color=\"none\" (click)=\"EditSave()\">\n    <ion-icon style=\"margin-left: -30px;font-size: 36px;\"color=\"primary\"slot=\"end\"name=\"save\"></ion-icon>\n</ion-button>\n\n<ion-button *ngIf=\"Edit && isIOS\"lines=\"none\" style=\"background-color: transparent;--box-shadow: none !important;height: 36px;width: 45px;\"slot=\"end\" color=\"none\" (click)=\"EditSave()\">\n    <ion-icon style=\"margin-left: 0px;font-size: 36px;\"color=\"primary\"slot=\"end\"name=\"save\"></ion-icon>\n</ion-button>\n\n<ion-button *ngIf=\"Edit\"lines=\"none\" style=\"background-color: transparent;--box-shadow: none !important;height: 31px;width: 80px;text-align: left;\"slot=\"start\" color=\"none\" (click)=\"EditCancel()\">\n    <ion-label  color=\"red\" style=\"text-align: left;\">\n        Cancel\n    </ion-label>\n</ion-button>\n\n<ion-button *ngIf=\"!Edit\"lines=\"none\" style=\"background-color: transparent;--box-shadow: none !important;height: 31px;width: 80px;text-align: left;\"slot=\"start\" color=\"none\" (click)=\"SignOut()\">\n    <ion-label  color=\"red\" style=\"text-align: left;\">\n        Sign out\n    </ion-label>\n</ion-button>\n    \n</ion-item>\n\n<!--\n//////////////////\n\nold class for <ion-avatar>\nclass=\"tilt-in-top-1\"\n\n//////////////////    \n-->\n\n    <div class=\"top background-size\" style=\"margin-top: -45px;\">\n\n        <ion-item lines=\"none\" class=\"transparent user\">\n            <ion-avatar style=\"margin-top: 0px;display: block;margin-left: auto;margin-right: auto;\" >\n                <img [src]=\"user.img\">\n            </ion-avatar>\n<!--\n            <ion-label class=\"ion-padding-start\">\n                <h4 class=\"tracking-in-expand\" [ngStyle]=\"{'animation-delay':(1) * 0.5+'s'}\">{{user.name}}</h4>\n                <p class=\"tracking-in-expand\" [ngStyle]=\"{'animation-delay':(2) * 0.5+'s'}\">{{user.intro}}</p>\n            </ion-label>\n            <ion-buttons slot=\"end\">\n\n                <ion-button (click)=\"onNotice()\">\n                    <ion-icon name=\"notifications-outline\" color=\"light\" size=\"large\"\n                              class=\"swing\"\n                              [ngStyle]=\"{'animation-duration':(2) * 0.5+'s','animation-iteration-count':'infinite'}\"></ion-icon>\n                    <ion-badge color=\"danger\" class=\"num\">3</ion-badge>\n\n                </ion-button>\n\n            </ion-buttons>-->\n \n        </ion-item>\n        <ion-item color=\"none\" lines=\"none\">\n            <ion-label color=\"white\" class=\"ion-text-center\" style=\"margin-top: -3px;font-size: 25px;\">\n              {{user.name}}\n          </ion-label>\n        </ion-item>\n        <ion-item color=\"none\" lines=\"none\">\n            <ion-label color=\"white\" class=\"ion-text-center\" style=\"margin-top: -3px;font-size: 15px;\">\n              Pin Number: {{UserPin}}\n          </ion-label>\n        </ion-item>\n        <!--\n        <div class=\"test1\" (click)=\"SignOut()\">\n            Sign Out\n        </div>-->\n    </div>\n\n    \n    <ion-card style=\"height:200px;margin-top: 40px;z-index: 0;overflow: visible; background-color: rgba(200,200,200,0.1);\">\n        <ion-card-content style=\"overflow: visible; \"color=\"none\">\n            <ion-row >\n                <ion-col size=\"5\">\n                    <ion-img style=\"height:100px;width:100px;margin-top: 0px;margin-left: 30px;\" src=\"assets/images/exampleAva.jpeg\"></ion-img>  \n                </ion-col>\n                <ion-col  size=\"7\" style=\"margin-left: 0px;\">\n                    <!--\n                    <ion-item  color=\"none\" style=\"margin-top: -10px;margin-left: 10px;width: 200px;\"lines=\"none\" *ngFor=\"let item of list;let i=index\">\n                        <ion-icon [name]=\"item.icon\" [color]=\"item.color\" size=\"large\" class=\"scale-in-center\"\n                                  [ngStyle]=\"{'animation-delay':(i + 1) * 0.5+'s'}\"></ion-icon>\n                        <ion-label class=\"ion-padding-start\">\n                            <h5 style=\"color: white;\"[classList]=\"'tracking-in-expand'\"\n                                [ngStyle]=\"{'animation-delay':(i + 1) * 0.5+'s'}\">{{item.title}}</h5>\n                            <p style=\"color:lightgray\"[classList]=\"'tracking-in-expand'\"\n                               [ngStyle]=\"{'animation-delay':(i + 1) * 0.6+'s'}\">{{item.date}}</p>\n                        </ion-label>\n                    </ion-item>\n                    -->\n\n                    <ion-item  color=\"none\" style=\"margin-top: -10px;margin-left: 10px;width: 200px;\"lines=\"none\">\n                        <ion-icon name=\"bicycle\" color=\"primary\" size=\"large\" class=\"scale-in-center\"\n                                  [ngStyle]=\"{'animation-delay':(i + 1) * 0.5+'s'}\"></ion-icon>\n                        <ion-label class=\"ion-padding-start\">\n                            <h5 style=\"color: white;\"[classList]=\"'tracking-in-expand'\"\n                                [ngStyle]=\"{'animation-delay':(i + 1) * 0.5+'s'}\">Today's Weight</h5>\n                            <p *ngIf=\"!Edit\" style=\"color:lightgray\"[classList]=\"'tracking-in-expand'\"\n                               [ngStyle]=\"{'animation-delay':(i + 1) * 0.6+'s'}\">{{UserWeight}}</p>\n                            <input *ngIf=\"Edit\" type=\"text\" id=\"uWeight\" name=\"uWeight\" style=\"width: 100px;height: 22px;\">\n                        </ion-label>\n                    </ion-item>\n\n                    <ion-item  color=\"none\" style=\"margin-top: -10px;margin-left: 10px;width: 200px;\"lines=\"none\">\n                        <ion-icon name=\"ios-walk\" color=\"tertiary\" size=\"large\" class=\"scale-in-center\"\n                                  [ngStyle]=\"{'animation-delay':(i + 1) * 0.5+'s'}\"></ion-icon>\n                        <ion-label class=\"ion-padding-start\">\n                            <h5 style=\"color: white;\"[classList]=\"'tracking-in-expand'\"\n                                [ngStyle]=\"{'animation-delay':(i + 1) * 0.5+'s'}\">Goal Weight</h5>\n                            <p *ngIf=\"!Edit\"style=\"color:lightgray\"[classList]=\"'tracking-in-expand'\"\n                               [ngStyle]=\"{'animation-delay':(i + 1) * 0.6+'s'}\">{{GoalWeight}}</p>\n                               <input *ngIf=\"Edit\" type=\"text\" id=\"gWeight\" name=\"gWeight\" style=\"width: 100px;height: 22px;\">\n                            \n                        </ion-label>\n                    </ion-item>\n\n                    <ion-item  color=\"none\" style=\"margin-top: -10px;margin-left: 10px;width: 200px;\"lines=\"none\">\n                        <ion-icon name=\"stats\" color=\"tertiary\" size=\"large\" class=\"scale-in-center\"\n                                  [ngStyle]=\"{'animation-delay':(i + 1) * 0.5+'s'}\"></ion-icon>\n                        <ion-label class=\"ion-padding-start\">\n                            <h5 style=\"color: white;\"[classList]=\"'tracking-in-expand'\"\n                                [ngStyle]=\"{'animation-delay':(i + 1) * 0.5+'s'}\">Heaviest Weight</h5>\n                            <p *ngIf=\"!Edit\"style=\"color:lightgray\"[classList]=\"'tracking-in-expand'\"\n                               [ngStyle]=\"{'animation-delay':(i + 1) * 0.6+'s'}\">{{HeaviestWeight}}</p>\n                               <input *ngIf=\"Edit\" type=\"text\" id=\"hWeight\" name=\"hWeight\" style=\"width: 100px;height: 22px;\">\n                                \n                        </ion-label>\n                    </ion-item>\n\n\n\n\n                </ion-col>\n            </ion-row>\n            \n        </ion-card-content>\n      \n    </ion-card>\n    <!--<custom-walk></custom-walk>-->\n    <!--<ion-card class=\"fadeInUp\" \n    [ngStyle]=\"{'animation-duration':(3) * 0.5+'s'}\" color=\"white\" style=\"height: 300px; width: 95%;\">\n\n    </ion-card>-->\n    <!--<custom-line-chart></custom-line-chart>-->\n    <!--<custom-steps></custom-steps>-->\n</ion-content>\n"
 
 /***/ }),
 
@@ -186,7 +186,7 @@ var SettingPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "app-setting .top {\n  height: 200px;\n}\napp-setting .user {\n  padding-top: 45px;\n  color: white;\n}\napp-setting .user p {\n  color: white;\n}\napp-setting h5 {\n  color: var(--ion-color-step-600, #666);\n}\napp-setting .num {\n  position: absolute;\n  padding: 2px;\n  right: 5px;\n  top: -2px;\n}\n.test1 {\n  margin-top: -15px;\n  margin-left: 80%;\n  color: #ec6060;\n}\nion-content {\n  --background: #fff url('backgroundD.png') no-repeat center center / cover;\n}\nion-modal.notice-modal {\n  background-color: rgba(0, 0, 0, 0.2) !important;\n  -webkit-transition: opacity 0.55s linear;\n  transition: opacity 0.55s linear;\n  padding: 30vh 3vh;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9qYWtlbGV3aXMvRGVza3RvcC9maWZ0ZWVuLXByb2plY3Qtei9zcmMvYXBwL3BhZ2VzL3NldHRpbmcvc2V0dGluZy5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3NldHRpbmcvc2V0dGluZy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0U7RUFDRSxhQUFBO0FDQUo7QURHRTtFQUNFLGlCQUFBO0VBQ0EsWUFBQTtBQ0RKO0FER0k7RUFDRSxZQUFBO0FDRE47QURLRTtFQUNFLHNDQUFBO0FDSEo7QURNRTtFQUNFLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFVBQUE7RUFDQSxTQUFBO0FDSko7QURPQTtFQUNFLGlCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxjQUFBO0FDSkY7QURPQTtFQUNFLHlFQUFBO0FDSkY7QURPQTtFQUNFLCtDQUFBO0VBQ0Esd0NBQUE7RUFBQSxnQ0FBQTtFQUNBLGlCQUFBO0FDSkYiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9zZXR0aW5nL3NldHRpbmcucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYXBwLXNldHRpbmcge1xuICAudG9wIHtcbiAgICBoZWlnaHQ6IDIwMHB4O1xuICB9XG5cbiAgLnVzZXIge1xuICAgIHBhZGRpbmctdG9wOiA0NXB4O1xuICAgIGNvbG9yOiB3aGl0ZTtcblxuICAgIHAge1xuICAgICAgY29sb3I6IHdoaXRlO1xuICAgIH1cbiAgfVxuXG4gIGg1IHtcbiAgICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLXN0ZXAtNjAwLCAjNjY2KTtcbiAgfVxuXG4gIC5udW17XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHBhZGRpbmc6IDJweDtcbiAgICByaWdodDogNXB4O1xuICAgIHRvcDogLTJweDtcbiAgfVxufVxuLnRlc3Qxe1xuICBtYXJnaW4tdG9wOiAtMTVweDtcbiAgbWFyZ2luLWxlZnQ6IDgwJTtcbiAgY29sb3I6IHJnYigyMzYsIDk2LCA5Nik7XG5cbn1cbmlvbi1jb250ZW50e1xuICAtLWJhY2tncm91bmQ6ICNmZmYgdXJsKCcuLi8uLi8uLi9hc3NldHMvaW1hZ2VzL2JhY2tncm91bmRELnBuZycpIG5vLXJlcGVhdCBjZW50ZXIgY2VudGVyIC8gY292ZXI7XG59XG5cbmlvbi1tb2RhbC5ub3RpY2UtbW9kYWwge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsIDAsIDAsIC4yKSAhaW1wb3J0YW50O1xuICB0cmFuc2l0aW9uOiBvcGFjaXR5IC41NXMgbGluZWFyO1xuICBwYWRkaW5nOiAzMHZoIDN2aDtcbn1cblxuIiwiYXBwLXNldHRpbmcgLnRvcCB7XG4gIGhlaWdodDogMjAwcHg7XG59XG5hcHAtc2V0dGluZyAudXNlciB7XG4gIHBhZGRpbmctdG9wOiA0NXB4O1xuICBjb2xvcjogd2hpdGU7XG59XG5hcHAtc2V0dGluZyAudXNlciBwIHtcbiAgY29sb3I6IHdoaXRlO1xufVxuYXBwLXNldHRpbmcgaDUge1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLXN0ZXAtNjAwLCAjNjY2KTtcbn1cbmFwcC1zZXR0aW5nIC5udW0ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHBhZGRpbmc6IDJweDtcbiAgcmlnaHQ6IDVweDtcbiAgdG9wOiAtMnB4O1xufVxuXG4udGVzdDEge1xuICBtYXJnaW4tdG9wOiAtMTVweDtcbiAgbWFyZ2luLWxlZnQ6IDgwJTtcbiAgY29sb3I6ICNlYzYwNjA7XG59XG5cbmlvbi1jb250ZW50IHtcbiAgLS1iYWNrZ3JvdW5kOiAjZmZmIHVybChcIi4uLy4uLy4uL2Fzc2V0cy9pbWFnZXMvYmFja2dyb3VuZEQucG5nXCIpIG5vLXJlcGVhdCBjZW50ZXIgY2VudGVyIC8gY292ZXI7XG59XG5cbmlvbi1tb2RhbC5ub3RpY2UtbW9kYWwge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuMikgIWltcG9ydGFudDtcbiAgdHJhbnNpdGlvbjogb3BhY2l0eSAwLjU1cyBsaW5lYXI7XG4gIHBhZGRpbmc6IDMwdmggM3ZoO1xufSJdfQ== */"
+module.exports = "app-setting .top {\n  height: 200px;\n}\napp-setting .user {\n  padding-top: 45px;\n  color: white;\n}\napp-setting .user p {\n  color: white;\n}\napp-setting h5 {\n  color: var(--ion-color-step-600, #666);\n}\napp-setting .num {\n  position: absolute;\n  padding: 2px;\n  right: 5px;\n  top: -2px;\n}\n.test1 {\n  margin-top: -15px;\n  margin-left: 80%;\n  color: #ec6060;\n}\nion-content {\n  --background: #fff url('backgroundD.png') no-repeat center center / cover;\n}\nion-modal.notice-modal {\n  background-color: rgba(0, 0, 0, 0.2) !important;\n  -webkit-transition: opacity 0.55s linear;\n  transition: opacity 0.55s linear;\n  padding: 30vh 3vh;\n}\nion-card {\n  overflow: visible;\n}\nion-card-content {\n  overflow: visible;\n}\n.container_2 {\n  -webkit-transform: rotate(90deg);\n  transform: rotate(90deg);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9qYWtlbGV3aXMvRGVza3RvcC9maWZ0ZWVuLXByb2plY3Qtei9zcmMvYXBwL3BhZ2VzL3NldHRpbmcvc2V0dGluZy5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3NldHRpbmcvc2V0dGluZy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0U7RUFDRSxhQUFBO0FDQUo7QURHRTtFQUNFLGlCQUFBO0VBQ0EsWUFBQTtBQ0RKO0FER0k7RUFDRSxZQUFBO0FDRE47QURLRTtFQUNFLHNDQUFBO0FDSEo7QURNRTtFQUNFLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFVBQUE7RUFDQSxTQUFBO0FDSko7QURPQTtFQUNFLGlCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxjQUFBO0FDSkY7QURPQTtFQUNFLHlFQUFBO0FDSkY7QURPQTtFQUNFLCtDQUFBO0VBQ0Esd0NBQUE7RUFBQSxnQ0FBQTtFQUNBLGlCQUFBO0FDSkY7QURNQTtFQUdFLGlCQUFBO0FDTEY7QURPQTtFQUVFLGlCQUFBO0FDTEY7QURRQTtFQUNFLGdDQUFBO0VBSUEsd0JBQUE7QUNMRiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3NldHRpbmcvc2V0dGluZy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJhcHAtc2V0dGluZyB7XG4gIC50b3Age1xuICAgIGhlaWdodDogMjAwcHg7XG4gIH1cblxuICAudXNlciB7XG4gICAgcGFkZGluZy10b3A6IDQ1cHg7XG4gICAgY29sb3I6IHdoaXRlO1xuXG4gICAgcCB7XG4gICAgICBjb2xvcjogd2hpdGU7XG4gICAgfVxuICB9XG5cbiAgaDUge1xuICAgIGNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3RlcC02MDAsICM2NjYpO1xuICB9XG5cbiAgLm51bXtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgcGFkZGluZzogMnB4O1xuICAgIHJpZ2h0OiA1cHg7XG4gICAgdG9wOiAtMnB4O1xuICB9XG59XG4udGVzdDF7XG4gIG1hcmdpbi10b3A6IC0xNXB4O1xuICBtYXJnaW4tbGVmdDogODAlO1xuICBjb2xvcjogcmdiKDIzNiwgOTYsIDk2KTtcblxufVxuaW9uLWNvbnRlbnR7XG4gIC0tYmFja2dyb3VuZDogI2ZmZiB1cmwoJy4uLy4uLy4uL2Fzc2V0cy9pbWFnZXMvYmFja2dyb3VuZEQucG5nJykgbm8tcmVwZWF0IGNlbnRlciBjZW50ZXIgLyBjb3Zlcjtcbn1cblxuaW9uLW1vZGFsLm5vdGljZS1tb2RhbCB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwgMCwgMCwgLjIpICFpbXBvcnRhbnQ7XG4gIHRyYW5zaXRpb246IG9wYWNpdHkgLjU1cyBsaW5lYXI7XG4gIHBhZGRpbmc6IDMwdmggM3ZoO1xufVxuaW9uLWNhcmR7XG4gIC8vaGVpZ2h0OjMwdmg7XG4gIC8vd2lkdGg6IDUwdnc7XG4gIG92ZXJmbG93OiB2aXNpYmxlOyAgICBcbn1cbmlvbi1jYXJkLWNvbnRlbnR7XG4gIC8vaGVpZ2h0OiA3MCU7XG4gIG92ZXJmbG93OiB2aXNpYmxlOyAgICBcbn1cblxuLmNvbnRhaW5lcl8yIHtcbiAgLXdlYmtpdC10cmFuc2Zvcm06IHJvdGF0ZSg5MGRlZyk7XG4gIC1tb3otdHJhbnNmb3JtOiByb3RhdGUoOTBkZWcpO1xuICAtby10cmFuc2Zvcm06IHJvdGF0ZSg5MGRlZyk7XG4gIC1tcy10cmFuc2Zvcm06IHJvdGF0ZSg5MGRlZyk7XG4gIHRyYW5zZm9ybTogcm90YXRlKDkwZGVnKTtcbn0iLCJhcHAtc2V0dGluZyAudG9wIHtcbiAgaGVpZ2h0OiAyMDBweDtcbn1cbmFwcC1zZXR0aW5nIC51c2VyIHtcbiAgcGFkZGluZy10b3A6IDQ1cHg7XG4gIGNvbG9yOiB3aGl0ZTtcbn1cbmFwcC1zZXR0aW5nIC51c2VyIHAge1xuICBjb2xvcjogd2hpdGU7XG59XG5hcHAtc2V0dGluZyBoNSB7XG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3RlcC02MDAsICM2NjYpO1xufVxuYXBwLXNldHRpbmcgLm51bSB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcGFkZGluZzogMnB4O1xuICByaWdodDogNXB4O1xuICB0b3A6IC0ycHg7XG59XG5cbi50ZXN0MSB7XG4gIG1hcmdpbi10b3A6IC0xNXB4O1xuICBtYXJnaW4tbGVmdDogODAlO1xuICBjb2xvcjogI2VjNjA2MDtcbn1cblxuaW9uLWNvbnRlbnQge1xuICAtLWJhY2tncm91bmQ6ICNmZmYgdXJsKFwiLi4vLi4vLi4vYXNzZXRzL2ltYWdlcy9iYWNrZ3JvdW5kRC5wbmdcIikgbm8tcmVwZWF0IGNlbnRlciBjZW50ZXIgLyBjb3Zlcjtcbn1cblxuaW9uLW1vZGFsLm5vdGljZS1tb2RhbCB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwgMCwgMCwgMC4yKSAhaW1wb3J0YW50O1xuICB0cmFuc2l0aW9uOiBvcGFjaXR5IDAuNTVzIGxpbmVhcjtcbiAgcGFkZGluZzogMzB2aCAzdmg7XG59XG5cbmlvbi1jYXJkIHtcbiAgb3ZlcmZsb3c6IHZpc2libGU7XG59XG5cbmlvbi1jYXJkLWNvbnRlbnQge1xuICBvdmVyZmxvdzogdmlzaWJsZTtcbn1cblxuLmNvbnRhaW5lcl8yIHtcbiAgLXdlYmtpdC10cmFuc2Zvcm06IHJvdGF0ZSg5MGRlZyk7XG4gIC1tb3otdHJhbnNmb3JtOiByb3RhdGUoOTBkZWcpO1xuICAtby10cmFuc2Zvcm06IHJvdGF0ZSg5MGRlZyk7XG4gIC1tcy10cmFuc2Zvcm06IHJvdGF0ZSg5MGRlZyk7XG4gIHRyYW5zZm9ybTogcm90YXRlKDkwZGVnKTtcbn0iXX0= */"
 
 /***/ }),
 
@@ -227,10 +227,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var SettingPage = /** @class */ (function () {
     function SettingPage(modalCtrl, 
     //private afStorage: AngularFireStorage,
-    afs, afAuth, pickerCtrl, alertController, storage, cd, route, router) {
+    afs, afAuth, pickerCtrl, alertController, storage, cd, route, router, platform) {
         this.modalCtrl = modalCtrl;
         this.afs = afs;
         this.afAuth = afAuth;
@@ -240,6 +241,7 @@ var SettingPage = /** @class */ (function () {
         this.cd = cd;
         this.route = route;
         this.router = router;
+        this.platform = platform;
         this.uReturnedFromUnity = function (param) {
             // param:String is the (optional) message returned from Unity-side
             alert(param);
@@ -251,6 +253,15 @@ var SettingPage = /** @class */ (function () {
             // unblocking the UI
             console.log("=========" + message + "=========");
         };
+        this.UserPin = "--";
+        this.GoalWeight = "--";
+        this.isIOS = false;
+        this.Edit = false;
+        this.list = [
+            { icon: 'bicycle', color: 'primary', title: "Today's Weight", date: '200' },
+            { icon: 'ios-walk', color: 'tertiary', title: 'Goal Weight', date: '190' },
+            { icon: 'stats', color: 'tertiary', title: 'Heaviest Weight', date: '210' }
+        ];
         this.img = 'assets/images/backgroundD.png';
         this.user = {
             name: 'hello User',
@@ -267,11 +278,46 @@ var SettingPage = /** @class */ (function () {
         // Send a message to Unity while Unity is still running
         unityARCaller.sendMessage("Function name", "Optional parameter");
     };
+    SettingPage.prototype.EditCancel = function () {
+        this.Edit = false;
+        this.cd.detectChanges();
+    };
+    SettingPage.prototype.EditSave = function () {
+        //const inputValue1 = <HTMLInputElement> document.getElementById("uWeight");
+        var inputValue1 = document.getElementById("uWeight").value;
+        var inputValue2 = document.getElementById("gWeight").value;
+        var inputValue3 = document.getElementById("hWeight").value;
+        if (inputValue1 == "") {
+            inputValue1 = this.UserWeight;
+        }
+        if (inputValue2 == "") {
+            inputValue2 = this.GoalWeight;
+        }
+        if (inputValue3 == "") {
+            inputValue3 = this.HeaviestWeight;
+        }
+        this.afs.collection('users').doc(_services_auth_service__WEBPACK_IMPORTED_MODULE_7__["__email"]).set({
+            User_Weight: inputValue1,
+            Goal_Weight: inputValue2,
+            Heaviest_Weight: inputValue3,
+        }, { merge: true });
+        this.Edit = false;
+        this.cd.detectChanges();
+    };
+    SettingPage.prototype.EditOn = function () {
+        this.Edit = true;
+        this.cd.detectChanges();
+        console.log("IM HERRREE");
+    };
     SettingPage.prototype.ngOnInit = function () {
         var _this = this;
         this.routeParams = this.route.params.subscribe(function (params) {
+            _this.Edit = false;
             console.log('Hello ' + _services_auth_service__WEBPACK_IMPORTED_MODULE_7__["__email"]);
             /*Update Variables here*/
+            if (_this.platform.is('ios')) {
+                _this.isIOS = true;
+            }
             if (!_services_auth_service__WEBPACK_IMPORTED_MODULE_7__["__email"]) {
                 _this.storage.get("email").then(function (data) {
                     //if data exists
@@ -280,6 +326,7 @@ var SettingPage = /** @class */ (function () {
                         var Email_1 = data.credential.email;
                         var displayName = data.credential.displayName;
                         var photoURL = data.credential.photoURL;
+                        _services_auth_service__WEBPACK_IMPORTED_MODULE_7__["setEmail"](data.credential.email);
                         /////  might edit out later
                         if (data.type == "google") {
                             _this.afAuth.signInWithCredential(firebase__WEBPACK_IMPORTED_MODULE_8__["auth"].GoogleAuthProvider.credential(data.token))
@@ -300,13 +347,23 @@ var SettingPage = /** @class */ (function () {
                         /////////
                         var userRef = _this.afs.doc("users/" + Email_1);
                         //console.log("We are here: "+email);
-                        var data2 = {
-                            uid: uid,
-                            Email: Email_1,
-                            displayName: displayName,
-                            photoURL: photoURL
-                        };
-                        userRef.set(data2, { merge: true });
+                        if (displayName) {
+                            var data2 = {
+                                uid: uid,
+                                Email: Email_1,
+                                displayName: displayName,
+                                photoURL: photoURL
+                            };
+                            userRef.set(data2, { merge: true });
+                        }
+                        else {
+                            var data2 = {
+                                uid: uid,
+                                Email: Email_1,
+                                photoURL: photoURL
+                            };
+                            userRef.set(data2, { merge: true });
+                        }
                         // new1 ////
                         _this.myAny = _this.afs.collection('users').doc(Email_1).snapshotChanges().subscribe(function (values) {
                             var data3 = values.payload.data();
@@ -318,6 +375,20 @@ var SettingPage = /** @class */ (function () {
                                 _this.user.img = 'assets/images/pfp.png';
                                 console.log("Default IMG");
                             }
+                            ////////////
+                            if (data3.Pin) {
+                                _this.UserPin = data3.Pin;
+                            }
+                            if (data3.Heaviest_Weight) {
+                                _this.HeaviestWeight = data3.Heaviest_Weight;
+                            }
+                            if (data3.User_Weight) {
+                                _this.UserWeight = data3.User_Weight;
+                            }
+                            if (data3.Goal_Weight) {
+                                _this.GoalWeight = data3.Goal_Weight;
+                            }
+                            ///////////
                             if (!data3.displayName) {
                                 var split = Email_1.split("@");
                                 var displayname = split[0];
@@ -335,16 +406,28 @@ var SettingPage = /** @class */ (function () {
                 });
             }
             else {
-                _this.myAny = _this.afs.collection('users').doc(_services_auth_service__WEBPACK_IMPORTED_MODULE_7__["__id"]).snapshotChanges().subscribe(function (values) {
+                _this.myAny = _this.afs.collection('users').doc(_services_auth_service__WEBPACK_IMPORTED_MODULE_7__["__email"]).snapshotChanges().subscribe(function (values) {
                     var data = values.payload.data();
                     console.log("myAny" + data.email);
                     if (data.photoURL) {
                         _this.user.img = data.photoURL;
                     }
+                    if (data.Pin) {
+                        _this.UserPin = data.Pin;
+                    }
+                    if (data.Heaviest_Weight) {
+                        _this.HeaviestWeight = data.Heaviest_Weight;
+                    }
+                    if (data.User_Weight) {
+                        _this.UserWeight = data.User_Weight;
+                    }
+                    if (data.Goal_Weight) {
+                        _this.GoalWeight = data.Goal_Weight;
+                    }
                     if (!data.displayName) {
                         var split = _services_auth_service__WEBPACK_IMPORTED_MODULE_7__["__email"].split("@");
                         var displayname = split[0];
-                        _this.afs.collection('users').doc(_services_auth_service__WEBPACK_IMPORTED_MODULE_7__["__id"]).set({ displayName: displayname }, { merge: true });
+                        _this.afs.collection('users').doc(_services_auth_service__WEBPACK_IMPORTED_MODULE_7__["__email"]).set({ displayName: displayname }, { merge: true });
                     }
                     _this.user.name = data.displayName;
                     _this.cd.detectChanges();
@@ -381,6 +464,9 @@ var SettingPage = /** @class */ (function () {
             });
         });
     };
+    SettingPage.prototype.randomInteger = function (min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
     SettingPage.prototype.normalLogin = function (email, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
@@ -405,7 +491,8 @@ var SettingPage = /** @class */ (function () {
         { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_9__["Storage"] },
         { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] }
     ]; };
     SettingPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -422,7 +509,8 @@ var SettingPage = /** @class */ (function () {
             _ionic_storage__WEBPACK_IMPORTED_MODULE_9__["Storage"],
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]])
     ], SettingPage);
     return SettingPage;
 }());

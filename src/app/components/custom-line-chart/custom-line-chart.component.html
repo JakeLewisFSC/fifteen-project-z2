@@ -15,7 +15,6 @@
 </ion-card>
 -->
 <div *ngFor="let index of foods | async"></div>
-<!--<div *ngFor="let index2 of myAny | async"></div>--->
 <ion-card class="fadeInUp" 
 [ngStyle]="{'animation-duration':(3) * 0.5+'s'}" style="margin-top: -50px; height: 55vh;">
       <ion-slides pager="true" [ngStyle]="{'background-image': 'url('+img+')'}" style="height: 55vh">
@@ -404,16 +403,17 @@
             </canvas>-->
       </ion-slide>
       <ion-slide>
-            <canvas baseChart width="300" height="200"
+            <canvas  baseChart width="120" height="90"
                   [datasets]="metabolism"
-                  [labels]="lineChartLabels"
+                  [labels]="metabolismLabels"
                   [options]="lineChartOptions"
-                  [colors]="lineChartColors"
+                  [colors]="lineChartColorsCalories"
                   [legend]="lineChartLegend"
                   [chartType]="lineChartType"
                   [plugins]="lineChartPlugins"
                   (chartHover)="chartHovered($event)"
-                  (chartClick)="chartClicked($event)">
+                  (chartClick)="chartClicked($event)"
+                  *ngIf="position == 6">
             </canvas>
       </ion-slide>
   </ion-slides>

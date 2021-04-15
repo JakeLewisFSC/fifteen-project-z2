@@ -8,12 +8,20 @@
 <div *ngFor="let index of userX | async"></div>
 <ion-item lines="none" style="background-color: transparent;" color="none">
 
-<ion-button *ngIf="!Edit"lines="none" style="background-color: transparent;--box-shadow: none !important;height: 36px;width: 45px;"slot="end" color="none" (click)="EditOn()">
+<ion-button *ngIf="!Edit && !isIOS"lines="none" style="background-color: transparent;--box-shadow: none !important;height: 36px;width: 45px;"slot="end" color="none" (click)="EditOn()">
     <ion-icon style="margin-left: -30px;font-size: 36px;"color="white"slot="end"name="more"class="container_2"></ion-icon>
 </ion-button>
 
-<ion-button *ngIf="Edit"lines="none" style="background-color: transparent;--box-shadow: none !important;height: 36px;width: 45px;"slot="end" color="none" (click)="EditSave()">
+<ion-button *ngIf="!Edit && isIOS"lines="none" style="background-color: transparent;--box-shadow: none !important;height: 36px;width: 45px;"slot="end" color="none" (click)="EditOn()">
+    <ion-icon style="margin-left: 0px;font-size: 36px;"color="white"slot="end"name="more"></ion-icon>
+</ion-button>
+
+<ion-button *ngIf="Edit && !isIOS"lines="none" style="background-color: transparent;--box-shadow: none !important;height: 36px;width: 45px;"slot="end" color="none" (click)="EditSave()">
     <ion-icon style="margin-left: -30px;font-size: 36px;"color="primary"slot="end"name="save"></ion-icon>
+</ion-button>
+
+<ion-button *ngIf="Edit && isIOS"lines="none" style="background-color: transparent;--box-shadow: none !important;height: 36px;width: 45px;"slot="end" color="none" (click)="EditSave()">
+    <ion-icon style="margin-left: 0px;font-size: 36px;"color="primary"slot="end"name="save"></ion-icon>
 </ion-button>
 
 <ion-button *ngIf="Edit"lines="none" style="background-color: transparent;--box-shadow: none !important;height: 31px;width: 80px;text-align: left;"slot="start" color="none" (click)="EditCancel()">

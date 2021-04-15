@@ -17,6 +17,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import * as email from '../services/auth.service';
 import * as firebase from 'firebase';
 import { Storage } from '@ionic/storage';
+import { Platform } from '@ionic/angular';
 
 declare let unityARCaller: any;
 
@@ -78,6 +79,7 @@ export class SettingPage implements OnInit {
     UserWeight:any;
     HeaviestWeight:any;
     GoalWeight = "--";
+    isIOS = false;
 
     Edit = false;
   
@@ -106,6 +108,7 @@ export class SettingPage implements OnInit {
         private cd: ChangeDetectorRef,
         private route: ActivatedRoute,
         private router: Router,
+        public platform: Platform,
         ) {
     }
 
@@ -155,6 +158,11 @@ export class SettingPage implements OnInit {
           this.Edit = false;
           console.log('Hello ' + email.__email);
             /*Update Variables here*/
+
+          if(this.platform.is('ios'))
+          {
+            this.isIOS = true;
+          }  
             
           if (!email.__email)
           {
